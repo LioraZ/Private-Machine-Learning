@@ -3,13 +3,13 @@ import tensorflow as tf
 
 def model():
     _IMAGE_SIZE = 32
-    _IMAGE_CHANNELS = 3  # change to layers
+    _IMAGE_LAYERS = 3  # change to layers
     _NUM_CLASSES = 10
 
     with tf.name_scope('main_params'):
-        x = tf.placeholder(tf.float32, shape=[None, _IMAGE_SIZE * _IMAGE_SIZE * _IMAGE_CHANNELS], name='Input')
+        x = tf.placeholder(tf.float32, shape=[None, _IMAGE_SIZE * _IMAGE_SIZE * _IMAGE_LAYERS], name='Input')
         y = tf.placeholder(tf.float32, shape=[None, _NUM_CLASSES], name='Labels')
-        x_image = tf.reshape(x, [-1, _IMAGE_SIZE, _IMAGE_SIZE, _IMAGE_CHANNELS], name='images')
+        x_image = tf.reshape(x, [-1, _IMAGE_SIZE, _IMAGE_SIZE, _IMAGE_LAYERS], name='images')
 
         global_step = tf.Variable(initial_value=0, trainable=False, name='global_step')
         learning_rate = tf.placeholder(tf.float32, shape=[], name='learning_rate')

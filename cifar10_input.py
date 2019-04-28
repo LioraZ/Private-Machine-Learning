@@ -12,15 +12,15 @@ DATA_URL = 'http://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz'
 NUM_CLASSES = 10
 
 
-def get_cifar10_train_data():
+def get_train_data():
     maybe_download_and_extract()
     batch_data = [get_batch(i) for i in range(5)]
     return prepare_data(batch_data)
 
 
-def get_cifar10_test():
+def get_test_data():
     maybe_download_and_extract()
-    with open(CIFAR_10_DATA_DIR + '/test_batch_', 'rb') as file:
+    with open(CIFAR_10_DATA_DIR + '/test_batch', 'rb') as file:
         datadict = pickle.load(file, encoding='latin1')
         return prepare_data([[datadict['data'], datadict['labels']]])
 
