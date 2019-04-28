@@ -48,7 +48,7 @@ def test_and_save(_global_step, epoch):
         batch_ys = test_y[i:j, :]
         predicted_class[i:j] = sess.run(
             y_pred_cls,
-            feed_dict={x: batch_xs, y: batch_ys, learning_rate: lr(epoch)}
+            feed_dict={x: batch_xs, y: batch_ys, learning_rate: cifar10_model.lr(epoch)}
         )
         i = j
 
